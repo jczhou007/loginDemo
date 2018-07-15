@@ -20,13 +20,13 @@ killJetty()
     then
       echo "no jetty pid alive"
     else
-      kill $pid
+      kill -9 $pid
     fi
 }
 cd $PROJ_PATH/$PROJECT_NAME
 mvn clean package -Dmaven.skip.test=true
 
-# 停tomcat
+# 停jetty
 killJetty
 
 # 删除原有工程
